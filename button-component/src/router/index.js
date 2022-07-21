@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import zhangTable from '../views/zhangTable.vue'
+import zhangForm from '../views/zhangForm.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/zhangTable',
     name: 'zhangTable',
     component: zhangTable
+  },
+  {
+    path: '/zhangForm',
+    name: 'zhangForm',
+    component: zhangForm
   }
 ]
 
