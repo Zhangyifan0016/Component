@@ -3,6 +3,18 @@
     <el-form ref="form" :model="field">
       <template v-for="item in formItem">
         <el-form-item
+          :rules="item.rules"
+          :key="item.label"
+          :label="item.label"
+          :prop="item.prop"
+        >
+          <component
+            :value.sync="field[item.prop]"
+            :config="item"
+            :is="!item.type ? 'com-text' : `com-${item.type}`"
+          ></component>
+        </el-form-item>
+        <el-form-item
           v-if="item.type === 'input'"
           :key="item.label"
           :label="item.label"
@@ -32,8 +44,18 @@
 
 <script>
 import createRules from './createRules'
+const modules = {}
+const files = require.context('../control', true, /index.vue$/i)
+files.keys().forEach((item) => {
+  const key = item.split('/')
+  const name = key[1]
+  modules[`com-${name}`] = files(item).default
+})
 export default {
   name: 'index',
+  components: {
+    ...modules
+  },
   props: {
     item: {
       type: Array,

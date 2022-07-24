@@ -49,23 +49,52 @@ export default {
           //   }
           // ]
         },
+        // {
+        //   type: 'select',
+        //   label: '活动区域',
+        //   prop: 'gender',
+        //   required: true
+        //   // rules: [
+        //   //   {
+        //   //     required: true,
+        //   //     message: '必填'
+        //   //   }
+        //   // ]
+        // },
         {
+          label: '教室',
           type: 'select',
-          label: '活动区域',
-          prop: 'gender',
-          required: true
-          // rules: [
-          //   {
-          //     required: true,
-          //     message: '必填'
-          //   }
+          prop: 'class_room',
+          required: true,
+          // options: [
+          //   { label: '1班', value: 1 },
+          //   { label: '2班', value: 2 },
+          //   { label: '3班', value: 3 }
           // ]
+          props: {
+            label: 'name',
+            value: 'id'
+          },
+          options: [
+            { name: '1班', id: 1 },
+            { name: '2班', id: 2 },
+            { name: '3班', id: 3 }
+          ]
+        },
+        {
+          label: '异步教室',
+          type: 'select',
+          prop: 'class_room1',
+          required: true,
+          url: '/classname/',
+          method: 'get',
+          initRequest: true
         }
       ],
       formField: {
         phone: '',
-        name: '',
-        gender: ''
+        name: ''
+        // gender: ''
       }
       // formRules: {
       //   name: [
