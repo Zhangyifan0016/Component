@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import zhangTable from '../views/zhangTable.vue'
 import zhangForm from '../views/zhangForm.vue'
+import upload from '../views/Upload.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/zhangForm',
     name: 'zhangForm',
     component: zhangForm
+  },
+  {
+    path: '/upload',
+    name: 'upload',
+    component: upload
   }
 ]
 
