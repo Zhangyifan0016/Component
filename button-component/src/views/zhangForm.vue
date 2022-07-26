@@ -82,18 +82,29 @@ export default {
           ]
         },
         {
-          label: '异步教室',
-          type: 'select',
-          prop: 'class_room1',
-          required: true,
-          url: '/classname/',
-          method: 'get',
-          initRequest: true
+          label: '状态',
+          type: 'switch',
+          prop: 'status',
+          activeValue: 1,
+          inactiveValue: 0,
+          beforeChange: () => {
+            return this.handleChangeStatus()
+          }
         }
+        // {
+        //   label: '异步教室',
+        //   type: 'select',
+        //   prop: 'class_room1',
+        //   required: true,
+        //   url: '/classname/',
+        //   method: 'get',
+        //   initRequest: true
+        // }
       ],
       formField: {
         phone: '',
-        name: ''
+        name: '',
+        status: 1
         // gender: ''
       }
       // formRules: {
@@ -114,6 +125,15 @@ export default {
   },
   components: {
     zhangForm: () => import('../components/zhangForm/index.vue')
+  },
+  methods: {
+    handleChangeStatus() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(true)
+        }, 1000)
+      })
+    }
   }
 }
 </script>

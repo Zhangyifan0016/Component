@@ -14,24 +14,6 @@
             :is="!item.type ? 'com-text' : `com-${item.type}`"
           ></component>
         </el-form-item>
-        <el-form-item
-          v-if="item.type === 'input'"
-          :key="item.label"
-          :label="item.label"
-          :prop="item.prop"
-          :rules="item.rules"
-        >
-          <el-input v-model="field[item.prop]"></el-input>
-        </el-form-item>
-        <el-form-item
-          v-if="item.type === 'select'"
-          :key="item.label"
-          :label="item.label"
-          :prop="item.prop"
-          :rules="item.rules"
-        >
-          <el-select v-model="field[item.prop]"></el-select>
-        </el-form-item>
       </template>
       <el-form-item>
         <el-button v-for="item in button" :key="item.key" v-bind="item">{{
