@@ -26,6 +26,21 @@ export default {
       ],
       formItem: [
         {
+          label: '文件',
+          type: 'upload',
+          prop: 'file',
+          model: 'card',
+          width: '90px',
+          height: '90px',
+          url: '/upload_single',
+          method: 'POST',
+          limit: 3,
+          accept: '.jpg',
+          maxSize: 2,
+          showFile: true,
+          multiple: true
+        },
+        {
           label: '手机号',
           type: 'input',
           valueType: 'phone',
@@ -104,7 +119,8 @@ export default {
       formField: {
         phone: '',
         name: '',
-        status: 1
+        status: 1,
+        file: ''
         // gender: ''
       }
       // formRules: {
